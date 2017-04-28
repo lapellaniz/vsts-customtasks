@@ -1,0 +1,72 @@
+{
+  "id": "3431aa20-d29c-11e6-b3a0-43a3eb5c6d82",
+  "name": "SetVSOVariableFromAzureRestResource",
+  "friendlyName": "Set VSO variable from Azure Resource",
+  "description": "Retrieve a JSON reference for an Azure Resource using the REST API and write out the specified data to VSO variables.",
+  "author": "Luis R Apellaniz",
+  "helpMarkDown": "",
+  "category": "Utility",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "1",
+    "Minor": "0",
+    "Patch": "0"
+  },
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "Set VSO Variable from Azure Resource $(message)",
+  "inputs": [
+    {
+      "name": "connectedServiceName",
+      "type": "connectedService:AzureRM",
+      "label": "Azure RM Subscription",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Select the Azure Resource Manager subscription for the deployment."
+    },
+    {
+      "name": "resourceProviderUri",
+      "type": "string",
+      "label": "Resource Provider Uri",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The uri used to access the resource starting from the provider. An example is `providers/Microsoft.Web/hostingEnvironments/myResourceName/capacities/virtualip?api-version=2015-08-01`"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "string",
+      "label": "Resource Group Name",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Provide the name of the resource group."
+    },
+    {
+      "name": "httpMethod",
+      "type": "pickList",
+      "label": "Http Method",
+      "defaultValue": "GET",
+      "required": true,
+      "helpMarkDown": "Provide the HTTP REST method to invoke. (GET, POST)",
+      "options": {
+        "GET": "GET",
+        "POST": "POST"
+      }
+    },
+    {
+      "name": "outputVariables",
+      "type": "string",
+      "label": "Output variables",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "JSON dictionary listing the output variables to return from the resource and what VSO variable to write it back to. An example is `{\"key1\":\"variable1\", \"key2\": \"variable2\"}`"
+    }
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "main.ps1"
+    }
+  }
+}

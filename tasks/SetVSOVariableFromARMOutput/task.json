@@ -1,0 +1,52 @@
+{
+  "id": "6ff838c4-241c-4566-98b7-b6f18f13011f",
+  "name": "SetVSOVariableFromARMOutput",
+  "friendlyName": "Set VSO Variable From ARM Output",
+  "description": "Retrieve Azure ARM deployment output and write out the specified data to VSO variables.",
+  "author": "Luis R Apellaniz",
+  "helpMarkDown": "",
+  "category": "Utility",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "1",
+    "Minor": "0",
+    "Patch": "1"
+  },
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "Set VSO Variable from Azure Deployment Output $(message)",
+  "inputs": [
+    {
+      "name": "connectedServiceName",
+      "type": "connectedService:AzureRM",
+      "label": "Azure RM Subscription",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Select the Azure Resource Manager subscription for the deployment."
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "string",
+      "label": "Resource Group Name",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Provide the name of the resource group."
+    },    
+    {
+      "name": "outputVariables",
+      "type": "string",
+      "label": "Output variables",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "JSON dictionary listing the output variables to return from the deployment output and what VSO variable to write it back to. An example is `{\"key1\":\"variable1\", \"key2\": \"variable2\"}`"
+    }
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "main.ps1"
+    }
+  }
+}
