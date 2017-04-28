@@ -63,36 +63,36 @@ Inputs can be grouped into logical visual containers. These are rendered as a co
 ```json
 "groups": [    
     {
-      "name": "advanced
-      "displayName": "Advanced
+      "name": "advanced",
+      "displayName": "Advanced",
       "isExpanded": false
     }
 ],
 "inputs": [
     {
-      "name": "manageMode
-      "type": "pickList
-      "label": "Management Mode
-      "defaultValue": "Verify
+      "name": "manageMode",
+      "type": "pickList",
+      "label": "Management Mode",
+      "defaultValue": "Verify",
       "required": true,
-      "groupName": "advanced
-      "helpMarkDown": "Verify or Deploy routes.
+      "groupName": "advanced",
+      "helpMarkDown": "Verify or Deploy routes.",
       "properties": {
         "EditableOptions": "True"
       },
       "options": {
-        "Verify": "Verify
+        "Verify": "Verify",
         "Deploy": "Deploy"
       }
     },
     {
-      "name": "enabled
-      "type": "pickList
-      "label": "Enabled
-      "defaultValue": "false
+      "name": "enabled",
+      "type": "pickList",
+      "label": "Enabled",
+      "defaultValue": "false",
       "required": true,
-      "groupName": "advanced
-      "helpMarkDown": "Specifies if the step will run. Requires 'Control Options | Enabled' to be set as well.
+      "groupName": "advanced",
+      "helpMarkDown": "Specifies if the step will run. Requires 'Control Options | Enabled' to be set as well.",
       "properties": {
         "EditableOptions": "True"
       },
